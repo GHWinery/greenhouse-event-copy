@@ -1,0 +1,17 @@
+{
+  "name": "greenhouse-event-copy",
+  "version": "1.0.0",
+  "description": "Staff-facing event copy generator for Greenhouse Winery",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "openai": "^6.34.0"
+  }
+}

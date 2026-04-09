@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenhouse Winery — Event Copy Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Greenhouse Winery</h1>
+    <p>Event Copy Generator</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Event Card</h2>
+      <p class="hint">Fill out the details below — all copy will be generated from this.</p>
+
+      <form id="event-form">
+
+        <div class="field">
+          <label for="eventName">Event / Band Name *</label>
+          <input type="text" id="eventName" name="eventName" placeholder="e.g. MSJR Reggae Band" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="date">Date *</label>
+            <input type="text" id="date" name="date" placeholder="e.g. Friday, April 10, 2026" required>
+          </div>
+          <div class="field">
+            <label for="time">Time *</label>
+            <input type="text" id="time" name="time" placeholder="e.g. 7:00 PM – 10:00 PM" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="format">Format</label>
+            <select id="format" name="format">
+              <option value="Evening / Indoor">Evening — Indoor</option>
+              <option value="Evening / Outdoor">Evening — Outdoor</option>
+              <option value="Evening / Indoor + Outdoor">Evening — Indoor + Outdoor</option>
+              <option value="Daytime / Indoor">Daytime — Indoor</option>
+              <option value="Daytime / Outdoor">Daytime — Outdoor</option>
+              <option value="Brunch">Brunch</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="artistTier">Artist Tier</label>
+            <select id="artistTier" name="artistTier">
+              <option value="Tier 1 ($800–$2,700)">Tier 1 — $800–$2,700</option>
+              <option value="Tier 2 ($400–$800)" selected>Tier 2 — $400–$800</option>
+              <option value="Tier 3 ($150–$350)">Tier 3 — $150–$350</option>
+              <option value="Special Event">Special Event / Ticketed Experience</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="cost">Booking Cost</label>
+            <input type="text" id="cost" name="cost" placeholder="e.g. $400">
+          </div>
+          <div class="field">
+            <label for="foodVendor">Food Vendor</label>
+            <input type="text" id="foodVendor" name="foodVendor" placeholder="e.g. Gridiots BBQ or None">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="tickets">Tickets / Entry</label>
+          <select id="tickets" name="tickets">
+            <option value="No cover — open entry">No cover — open entry</option>
+            <option value="No cover — reserve at greenhousewinery.com/events">No cover — reserve online</option>
+            <option value="Ticketed — online only">Ticketed — online only</option>
+            <option value="Ticketed — $20/person, includes one free drink">Ticketed — $20/person + free drink</option>
+            <option value="Ticketed — $25/person">Ticketed — $25/person</option>
+            <option value="Ticketed — $50/person">Ticketed — $50/person</option>
+            <option value="Ticketed — $55/person">Ticketed — $55/person</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="specialNotes">Special Notes</label>
+          <textarea id="specialNotes" name="specialNotes" rows="3"
+            placeholder="Theme, free drink policy, recurring event, double-header, limited seating, etc."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="artistContact">Artist Contact (optional)</label>
+          <input type="text" id="artistContact" name="artistContact"
+            placeholder="e.g. Mark Lee | thecashoutshow@aol.com | 412-555-0000">
+        </div>
+
+        <div class="field">
+          <label for="outputsNeeded">Outputs Needed</label>
+          <select id="outputsNeeded" name="outputsNeeded">
+            <option value="All outputs">All outputs (full package)</option>
+            <option value="Social copy only (announcement, hype, day-of posts)">Social copy only</option>
+            <option value="Google Calendar description and staff notes only">Google Calendar + staff notes only</option>
+            <option value="Website description and short listing only">Website description only</option>
+            <option value="Email newsletter blurb only">Email blurb only</option>
+          </select>
+        </div>
+
+        <button type="submit" id="generate-btn">Generate Copy Package</button>
+
+      </form>
+    </section>
+
+    <section class="output-section" id="output-section" style="display:none;">
+      <div class="output-header">
+        <h2>Generated Copy</h2>
+        <button id="copy-btn" onclick="copyAll()">Copy All</button>
+      </div>
+      <pre id="output-box"></pre>
+    </section>
+
+    <div id="loading" style="display:none;" class="loading">
+      <div class="spinner"></div>
+      <p>Generating copy...</p>
+    </div>
+
+    <div id="error-box" class="error" style="display:none;"></div>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
