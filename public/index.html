@@ -70,16 +70,16 @@
         </div>
 
         <div class="field">
-          <label for="tickets">Tickets / Entry</label>
-          <select id="tickets" name="tickets">
-            <option value="No cover — open entry">No cover — open entry</option>
-            <option value="No cover — reserve at greenhousewinery.com/events">No cover — reserve online</option>
-            <option value="Ticketed — online only">Ticketed — online only</option>
-            <option value="Ticketed — $20/person, includes one free drink">Ticketed — $20/person + free drink</option>
-            <option value="Ticketed — $25/person">Ticketed — $25/person</option>
-            <option value="Ticketed — $50/person">Ticketed — $50/person</option>
-            <option value="Ticketed — $55/person">Ticketed — $55/person</option>
+          <label for="ticketType">Tickets / Entry</label>
+          <select id="ticketType" name="ticketType">
+            <option value="free">Free RSVP Event</option>
+            <option value="ticketed">Ticketed Event</option>
           </select>
+        </div>
+
+        <div class="field" id="ticketPriceField" style="display:none;">
+          <label for="ticketPrice">Ticket Price</label>
+          <input type="text" id="ticketPrice" name="ticketPrice" placeholder="e.g. $25/person or $50/person, includes one free drink">
         </div>
 
         <div class="field">

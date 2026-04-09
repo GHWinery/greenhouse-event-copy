@@ -5,6 +5,13 @@ const loading = document.getElementById('loading');
 const errorBox = document.getElementById('error-box');
 const generateBtn = document.getElementById('generate-btn');
 
+const ticketType = document.getElementById('ticketType');
+const ticketPriceField = document.getElementById('ticketPriceField');
+
+ticketType.addEventListener('change', () => {
+  ticketPriceField.style.display = ticketType.value === 'ticketed' ? 'block' : 'none';
+});
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -23,7 +30,9 @@ form.addEventListener('submit', async (e) => {
     artistTier:    document.getElementById('artistTier').value,
     cost:          document.getElementById('cost').value.trim(),
     foodVendor:    document.getElementById('foodVendor').value.trim(),
-    tickets:       document.getElementById('tickets').value,
+    tickets:       ticketType.value === 'ticketed'
+                   ? `Ticketed — ${document.getElementById('ticketPrice').value.trim() || 'price TBD'}`
+                   : 'Free RSVP — reserve at greenhousewinery.com/events',
     specialNotes:  document.getElementById('specialNotes').value.trim(),
     artistContact: document.getElementById('artistContact').value.trim(),
     outputsNeeded: document.getElementById('outputsNeeded').value,
